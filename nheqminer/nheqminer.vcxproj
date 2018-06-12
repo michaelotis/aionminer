@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -14,24 +14,24 @@
     <ProjectGuid>{6FF7D209-05A3-4550-93CC-211D33503719}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>nheqminer</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -56,7 +56,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;USE_CPU_TROMP;USE_CPU_XENONCAT;USE_CUDA_TROMP;USE_OCL_XMP;USE_OCL_SILENTARMY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;USE_CPU_TROMP;USE_CUDA_TROMP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>-D_WIN32_WINNT=0x0601 %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4068;4996;4503;4267;4180;4290;4244;4800;4334;4251</DisableSpecificWarnings>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
@@ -66,7 +66,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>cuda_tromp.lib;cpu_xenoncat.lib;cpu_tromp_SSE2.lib;ocl_device_utils.lib;ocl_silentarmy.lib;ocl_xpm.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cuda_tromp.lib;cpu_tromp_SSE2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
       <LargeAddressAware>
@@ -84,25 +84,32 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;USE_CPU_TROMP;USE_CPU_XENONCAT;USE_CUDA_TROMP;USE_CUDA_DJEZO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;USE_CPU_TROMP;USE_CUDA_TROMP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <AdditionalOptions>-D_WIN32_WINNT=0x0601 %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4068;4996;4503;4267;4180;4290;4244;4800;4334;4251</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(AMDAPPSDKROOT)\include\;..\ocl_xpm;..\3rdparty\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(AMDAPPSDKROOT)\include\;..\3rdparty\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>cuda_djezo.lib;cuda_tromp.lib;cuda_tromp_75.lib;cpu_xenoncat.lib;cpu_tromp_SSE2.lib;cpu_tromp_AVX.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>.\trompequihash\pthreads\x64;..\3rdparty\libs\win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cuda_tromp.lib;cuda_tromp_92.lib;cpu_tromp_SSE2.lib;cpu_tromp_AVX.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\GitHub\AionMiner\cpu_tromp\x64\Release;.\trompequihash\pthreads\x64;..\3rdparty\libs\win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>
       </LargeAddressAware>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\blake2\blake2-config.h" />
+    <ClInclude Include="..\blake2\blake2-impl.h" />
+    <ClInclude Include="..\blake2\blake2-round.h" />
+    <ClInclude Include="..\blake2\blake2.h" />
+    <ClInclude Include="..\blake2\blake2b-load-sse2.h" />
+    <ClInclude Include="..\blake2\blake2b-load-sse41.h" />
+    <ClInclude Include="..\blake2\blake2b-round.h" />
     <ClInclude Include="..\cpu_tromp\cpu_tromp.hpp" />
     <ClInclude Include="..\cpu_xenoncat\cpu_xenoncat.hpp" />
     <ClInclude Include="..\cuda_djezo\cuda_djezo.hpp" />
@@ -126,8 +133,8 @@
     <ClInclude Include="json\json_spirit_value.h" />
     <ClInclude Include="json\json_spirit_writer.h" />
     <ClInclude Include="json\json_spirit_writer_template.h" />
+    <ClInclude Include="libstratum\AionStratum.h" />
     <ClInclude Include="libstratum\StratumClient.h" />
-    <ClInclude Include="libstratum\ZcashStratum.h" />
     <ClInclude Include="MinerFactory.h" />
     <ClInclude Include="primitives\block.h" />
     <ClInclude Include="primitives\transaction.h" />
@@ -144,12 +151,10 @@
     <ClInclude Include="uint256.h" />
     <ClInclude Include="utilstrencodings.h" />
     <ClInclude Include="version.h" />
-    <ClInclude Include="zcash\JoinSplit.hpp" />
-    <ClInclude Include="zcash\NoteEncryption.hpp" />
     <ClInclude Include="zcash\Proof.hpp" />
-    <ClInclude Include="zcash\Zcash.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\blake2\blake2bx.cpp" />
     <ClCompile Include="amount.cpp" />
     <ClCompile Include="api.cpp" />
     <ClCompile Include="arith_uint256.cpp" />
@@ -160,8 +165,8 @@
     </ClCompile>
     <ClCompile Include="json\json_spirit_value.cpp" />
     <ClCompile Include="json\json_spirit_writer.cpp" />
+    <ClCompile Include="libstratum\AionStratum.cpp" />
     <ClCompile Include="libstratum\StratumClient.cpp" />
-    <ClCompile Include="libstratum\ZcashStratum.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MinerFactory.cpp" />
     <ClCompile Include="primitives\block.cpp" />
@@ -170,6 +175,5 @@
     <ClCompile Include="utilstrencodings.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>

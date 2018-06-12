@@ -15,6 +15,12 @@ uint256 CBlockHeader::GetHash() const
     return SerializeHash(*this);
 }
 
+
+uint256 ABlockHeader::GetHash() const
+{
+    return SerializeHash(*this);
+}
+
 uint256 CBlock::BuildMerkleTree(bool* fMutated) const
 {
     /* WARNING! If you're reading this because you're learning about crypto

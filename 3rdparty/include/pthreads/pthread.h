@@ -35,6 +35,7 @@
 
 
 #if !defined( PTHREAD_H )
+#define HAVE_STRUCT_TIMESPEC
 #define PTHREAD_H
 
 /*

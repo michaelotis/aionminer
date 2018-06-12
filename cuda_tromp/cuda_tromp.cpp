@@ -23,7 +23,7 @@ SOLVER_NAME::SOLVER_NAME(int platf_id, int dev_id)
 
 std::string SOLVER_NAME::getdevinfo()
 {
-	return m_gpu_name + " (#" + std::to_string(device_id) + ") BLOCKS=" + 
+	return m_gpu_name + " (#" + std::to_string(device_id) + ") BLOCKS=" +
 		std::to_string(blocks) + ", THREADS=" + std::to_string(threadsperblock);
 }
 
@@ -51,14 +51,14 @@ void SOLVER_NAME::getinfo(int platf_id, int d_id, std::string& gpu_name, int& sm
 
 
 void SOLVER_NAME::start(SOLVER_NAME& device_context)
-{ 
-	device_context.context = new eq_cuda_context(device_context.threadsperblock, 
+{
+	device_context.context = new eq_cuda_context(device_context.threadsperblock,
 		device_context.blocks,
 		device_context.device_id);
 }
 
 void SOLVER_NAME::stop(SOLVER_NAME& device_context)
-{ 
+{
 	if (device_context.context)
 		delete device_context.context;
 }

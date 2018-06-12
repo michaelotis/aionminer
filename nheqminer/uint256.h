@@ -23,10 +23,12 @@
 template<unsigned int BITS>
 class base_blob
 {
-protected:
+public:
+
+    /////// Change data to public to simplify blake2 target verification
     enum { WIDTH=BITS/8 };
     uint8_t _ALIGN(4) data[WIDTH];
-public:
+
     base_blob()
     {
         memset(data, 0, sizeof(data));
@@ -99,6 +101,19 @@ public:
     }
 };
 
+
+/** 128-bit opaque blob.
+ * @note This type is holds a 128 bit value; due to differences in compilers
+ * a standardized blob is used
+ */
+class uint128 : public base_blob<128> {
+public:
+    uint128() {}
+    uint128(const base_blob<128>& b) : base_blob<128>(b) {}
+    explicit uint128(const std::vector<unsigned char>& vch) : base_blob<128>(vch) {}
+};
+
+
 /** 160-bit opaque blob.
  * @note This type is called uint160 for historical reasons only. It is an opaque
  * blob of 160 bits and has no integer operations.
@@ -108,6 +123,16 @@ public:
     uint160() {}
     uint160(const base_blob<160>& b) : base_blob<160>(b) {}
     explicit uint160(const std::vector<unsigned char>& vch) : base_blob<160>(vch) {}
+};
+
+/** 2048-bit opaque blob.
+ * @note This type holds 2048 bit (256 byte) values used to form AION Block headers
+ */
+class uint2048 : public base_blob<2048> {
+public:
+    uint2048() {}
+    uint2048(const base_blob<2048>& b) : base_blob<2048>(b) {}
+    explicit uint2048(const std::vector<unsigned char>& vch) : base_blob<2048>(vch) {}
 };
 
 /** 256-bit opaque blob.
@@ -135,7 +160,7 @@ public:
     }
 
     /** A more secure, salted hash function.
-     * @note This hash is not stable between little and big endian.
+     * @note This hash is n160ot stable between little and big endian.
      */
     uint64_t GetHash(const uint256& salt) const;
 };

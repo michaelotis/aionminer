@@ -30,9 +30,6 @@
     <Filter Include="Header Files\libstratum">
       <UniqueIdentifier>{10bdd2d1-7fc8-4eab-8d6e-87376324ea6b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\zcash">
-      <UniqueIdentifier>{888f8dc8-51f1-4e4a-b6f1-92a3e220c145}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\primitives">
       <UniqueIdentifier>{61c55629-41bc-4eb6-8486-bbb178020141}</UniqueIdentifier>
     </Filter>
@@ -44,6 +41,9 @@
     </Filter>
     <Filter Include="Source Files\stuff">
       <UniqueIdentifier>{e3039ecd-7399-4161-b8f9-456ccb2a4632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blake2b">
+      <UniqueIdentifier>{555f55bb-40ba-48cd-99a1-30f3986943b1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -94,18 +94,6 @@
     </ClInclude>
     <ClInclude Include="libstratum\StratumClient.h">
       <Filter>Header Files\libstratum</Filter>
-    </ClInclude>
-    <ClInclude Include="libstratum\ZcashStratum.h">
-      <Filter>Header Files\libstratum</Filter>
-    </ClInclude>
-    <ClInclude Include="zcash\JoinSplit.hpp">
-      <Filter>Header Files\zcash</Filter>
-    </ClInclude>
-    <ClInclude Include="zcash\NoteEncryption.hpp">
-      <Filter>Header Files\zcash</Filter>
-    </ClInclude>
-    <ClInclude Include="zcash\Zcash.h">
-      <Filter>Header Files\zcash</Filter>
     </ClInclude>
     <ClInclude Include="primitives\block.h">
       <Filter>Header Files\primitives</Filter>
@@ -182,6 +170,30 @@
     <ClInclude Include="MinerFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="libstratum\AionStratum.h">
+      <Filter>Header Files\libstratum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blake2\blake2.h">
+      <Filter>blake2b</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blake2\blake2b-load-sse2.h">
+      <Filter>blake2b</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blake2\blake2b-load-sse41.h">
+      <Filter>blake2b</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blake2\blake2b-round.h">
+      <Filter>blake2b</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blake2\blake2-config.h">
+      <Filter>blake2b</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blake2\blake2-impl.h">
+      <Filter>blake2b</Filter>
+    </ClInclude>
+    <ClInclude Include="..\blake2\blake2-round.h">
+      <Filter>blake2b</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -194,9 +206,6 @@
       <Filter>Source Files\crypto</Filter>
     </ClCompile>
     <ClCompile Include="libstratum\StratumClient.cpp">
-      <Filter>Source Files\libstratum</Filter>
-    </ClCompile>
-    <ClCompile Include="libstratum\ZcashStratum.cpp">
       <Filter>Source Files\libstratum</Filter>
     </ClCompile>
     <ClCompile Include="json\json_spirit_reader.cpp">
@@ -228,6 +237,12 @@
     </ClCompile>
     <ClCompile Include="MinerFactory.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libstratum\AionStratum.cpp">
+      <Filter>Source Files\libstratum</Filter>
+    </ClCompile>
+    <ClCompile Include="..\blake2\blake2bx.cpp">
+      <Filter>blake2b</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
